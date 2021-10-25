@@ -29,7 +29,7 @@ Somos uma plataforma de salvamento de horas desperdiçadas escolhendo o próximo
 Clone o projeto
 
 ```bash
-  git clone https://github.com/diegodrc/viper-care
+  git clone https://github.com/diegodrc/match-ur-date
 ```
 
 
