@@ -6,9 +6,9 @@ Somos uma plataforma de salvamento de horas desperdiçadas escolhendo o próximo
 
 ## Autores
 
-- [@AnneIsabelleRodrigues](https://www.github.com/AnneIsabelleRodrigues)
-- [@diegodrc](https://www.github.com/diegodrc)
-- [@taiskc](https://www.github.com/taiskc)
+- Anne Isabelle Rodrigues de Carvalho [@AnneIsabelleRodrigues](https://www.github.com/AnneIsabelleRodrigues)
+- Diego Della Rocca de Camargos [@diegodrc](https://www.github.com/diegodrc)
+- Taís Christofani [@taiskc](https://www.github.com/taiskc)
  
 ## Tecnologias
 
