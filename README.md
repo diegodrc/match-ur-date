@@ -1,6 +1,6 @@
 # match ur date
 
-![logo](https://i.imgur.com/3zEPic1.png)
+![logo](https://i.imgur.com/fSnaApr.png)
 
 Somos uma plataforma de salvamento de horas desperdiçadas escolhendo o próximo filme a assistir com seu par.
 
