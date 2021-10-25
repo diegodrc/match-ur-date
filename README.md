@@ -1,8 +1,8 @@
-# Viper Care
+# Match Ur Date
 
-![logo](https://i.imgur.com/dYGQx82.png)
+![logo](https://i.imgur.com/aJG2XEn.png)
 
-Somos uma plataforma de gerenciamento de skin care.
+Somos uma plataforma de salvamento de horas desperdiçadas escolhendo o próximo filme a assistir com seu par.
 
 ## Autores
 
