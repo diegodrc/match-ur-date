@@ -6,9 +6,9 @@ Match ur date é a plataforma mais adequada para combinar o date ideal com o seu
 
 ## Autores 
 
-- Anne Isabelle Rodrigues de Carvalho (2019006353)
-- Diego Della Rocca de Camargos (2019006531)
-- Taís Christofani (2020420648)
+- Anne Isabelle Rodrigues de Carvalho (2019006353) - Desenvolvedora Full-Stack
+- Diego Della Rocca de Camargos (2019006531) - Desenvolvedor Backend
+- Taís Christofani (2020420648) - Desenvolvedora Frontend
 
 ## Funcionalidades
 
