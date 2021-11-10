@@ -68,3 +68,6 @@ EMV/
 
 .pyre/
 /flask_session/
+
+#idea
+.idea
