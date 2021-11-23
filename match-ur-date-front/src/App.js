@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 // import {MuiThemeProvider} from "@material-ui/styles";
 // import theme from '../components//Theme';
-import Initial from './app/components/Initial';
+import Initial from './app/components/Initial/Initial';
 
 const App = () => {
     const [ screen, setScreen ] = useState();
