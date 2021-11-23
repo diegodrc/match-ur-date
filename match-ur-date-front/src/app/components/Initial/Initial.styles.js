@@ -22,9 +22,10 @@ export default {
         display: 'block',
         width: 'auto'
     },
-    // info: {
-        
-    // },
+    info: {
+        fontFamily: theme.typography.fontFamily,
+        padding: '16px'   
+    },
     options: {
         display: 'flex',
         width: '100%',
@@ -37,7 +38,7 @@ export default {
         justifyContent: 'space-evenly',
         textTransform: 'none',
         fontWeight: 'bold',
-        border: '1px solid #000',
-        borderRadius: '12px'
+        borderRadius: '8px',
+        fontFamily: theme.typography.fontFamily
     }
 };

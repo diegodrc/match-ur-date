@@ -9,7 +9,7 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: [
-            'Open Sans',
+            'Open Sans', 'sans-serif'
         ].join(','),
         color: '#000'
     },
