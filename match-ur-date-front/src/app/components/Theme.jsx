@@ -3,22 +3,15 @@ import { createTheme } from '@material-ui/core/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            light: '#245856',
-            main: '#347F7B',
-            dark: '#5c9895',
-            contrastText: '#F5F7F6',
-        },
-        secondary: {
-            light: '#a6a7a7',
-            main: '#eeefef',
-            dark: '#f1f2f2',
-            contrastText: '#000',
-        },
+            main: '#F4F2F1',
+            button: '#00B0CF',
+        }
     },
     typography: {
         fontFamily: [
-            'Verdana',
+            'Open Sans',
         ].join(','),
+        color: '#000'
     },
     spacing: 8,
 });
