@@ -1,4 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint, Flask, request, Response
+from database.db import initialize_db
+from database.models.movie import Movie
 
 web = Blueprint('app', __name__)
 
