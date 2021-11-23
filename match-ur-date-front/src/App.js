@@ -1,20 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
-import { MuiThemeProvider } from '@material-ui/core';
-import theme from './components//Theme';
-import Initial from './components/Initial';
+import { useState, useEffect } from 'react';
+// import {MuiThemeProvider} from "@material-ui/styles";
+// import theme from '../components//Theme';
+import Initial from './app/components/Initial';
 
-import './assets/css/smacss';
+const App = () => {
+    const [ screen, setScreen ] = useState();
 
-const App = (props) => {
-    const { screen, setScreen } = useState('initial');
+    useEffect(() => {
+      setScreen('initial');
+    }, []);
 
     return (
-        <MuiThemeProvider theme={theme}>
-          { screen === 'initial' && (
+        // <MuiThemeProvider theme={theme}>
+          screen === 'initial' && (
             <Initial setScreen={setScreen} />
-          )}
-        </MuiThemeProvider>
+          )
+        // </MuiThemeProvider>
     );
 };
 export default App;
