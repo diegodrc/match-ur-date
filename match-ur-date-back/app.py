@@ -10,5 +10,5 @@ app.register_blueprint(api)
 app.config['MONGODB_SETTINGS'] = {
     'db': 'match_ur_date_database',
     'host': 'localhost',
-    'port': 5000
+    'port': 8999
 }
