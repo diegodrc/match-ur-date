@@ -23,7 +23,9 @@ Match ur date é a plataforma mais adequada para combinar o date ideal com o seu
 - Front-end: Construção da interface do usuário utilizando a biblioteca [React.js](https://pt-br.reactjs.org/) do JavaScript.
 - Back-end: Framework [Flask](https://flask.palletsprojects.com/en/2.0.x/) do Python para a criação do sistema web.
 - Banco de Dados: [mongoDB](https://www.mongodb.com/pt-br), orientado a documentos livres e armazenamento de dados não-relacionais
-- Kanban: Notion
-  - Disponível em: [Kanban do Projeto](https://scalloped-close-dd8.notion.site/bbb7b343ed4f4eb6895c33babef8eeae?v=92b4d7349b6744df96f6ff4a316a36e7)
+
+## Backlog
+
+- Disponível em: [Kanban do Projeto](https://scalloped-close-dd8.notion.site/bbb7b343ed4f4eb6895c33babef8eeae?v=92b4d7349b6744df96f6ff4a316a36e7)
 
   
