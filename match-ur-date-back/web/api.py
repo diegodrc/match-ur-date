@@ -1,7 +1,5 @@
 from flask import Blueprint, Flask, request, Response
 import requests, json, re
-from db import initialize_db
-from models import Movie
 from constants import Endpoint
 
 api = Blueprint('api', __name__)
