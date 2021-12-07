@@ -1,16 +1,6 @@
 import theme from '../Theme';
 
-export default {
-    main: {
-        background: theme.palette.primary.main,
-        position: 'fixed',
-        width: '100%',
-        height: '100%',
-        left: 0,
-        top: 0,
-        justifyContent: 'center',
-        display: 'flex'
-    },
+const styles = {
     outer: {
         display: 'flex',
         maxWidth: 'fit-content',
@@ -24,7 +14,8 @@ export default {
     },
     info: {
         fontFamily: theme.typography.fontFamily,
-        padding: '16px'   
+        padding: '50px 0px',
+        fontSize: '14px'
     },
     options: {
         display: 'flex',
@@ -42,3 +33,5 @@ export default {
         fontFamily: theme.typography.fontFamily
     }
 };
+
+export default styles;
