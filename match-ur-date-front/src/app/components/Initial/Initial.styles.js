@@ -10,17 +10,18 @@ const styles = {
     logo: {
         maxWidth: 'fit-content',
         display: 'block',
-        width: 'auto'
+        width: '50%'
     },
     info: {
         fontFamily: theme.typography.fontFamily,
         padding: '50px 0px',
-        fontSize: '14px'
+        fontSize: '14px',
+        width: '50%'
     },
     options: {
         display: 'flex',
         width: '100%',
-        justifyContent: 'space-evenly'
+        justifyContent: 'center'
     },
     buttons: {
         background: theme.palette.primary.button,
@@ -30,6 +31,7 @@ const styles = {
         textTransform: 'none',
         fontWeight: 'bold',
         borderRadius: '8px',
+        margin: '0px 8px',
         fontFamily: theme.typography.fontFamily
     }
 };
