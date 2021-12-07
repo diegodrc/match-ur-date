@@ -24,7 +24,7 @@ const styles = {
     },
     buttons: {
         background: theme.palette.primary.button,
-        color: theme.typography.color,
+        color: theme.typography.lightColor,
         width: 'auto',
         justifyContent: 'space-evenly',
         textTransform: 'none',
