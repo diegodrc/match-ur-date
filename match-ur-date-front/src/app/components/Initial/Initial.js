@@ -10,7 +10,7 @@ const Initial = (props) => {
     // ({ setScreen }) = props;
 
     return (
-        <div style={styles.main}>
+        <>
             <div style={styles.outer}>
             <img style={styles.logo} src={Logo} alt={Constants.logoDescription}></img>
             <Typography style={styles.info}>{Constants.systemDescription}</Typography>
@@ -19,7 +19,7 @@ const Initial = (props) => {
                 <Button startIcon={<SensorDoorIcon />} variant="contained" style={styles.buttons}>Ingressar em sessão</Button>
             </div>
             </div>
-        </div>
+        </>
     );
 };
 
