@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, Flask, request, Response
+import db
 
 web = Blueprint('app', __name__)
 
@@ -9,3 +10,8 @@ web = Blueprint('app', __name__)
 @web.route('/')
 def hello():
     return 'Oi, Vadias'
+
+@web.route("/test")
+def test():
+    db.db.collection.insert_one({"name": "John"})
+    return "Connected to the data base!"
