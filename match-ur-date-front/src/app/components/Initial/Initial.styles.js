@@ -27,12 +27,14 @@ const styles = {
         background: theme.palette.primary.button,
         color: theme.typography.lightColor,
         width: 'auto',
-        justifyContent: 'space-evenly',
         textTransform: 'none',
         fontWeight: 'bold',
         borderRadius: '8px',
         margin: '0px 8px',
-        fontFamily: theme.typography.fontFamily
+        fontFamily: theme.typography.fontFamily,
+        '&:hover': {
+            background: theme.palette.primary.button
+        },
     }
 };
 
