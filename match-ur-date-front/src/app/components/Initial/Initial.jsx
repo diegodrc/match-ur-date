@@ -25,8 +25,7 @@ const Initial = () => {
 
     const enterSession = () => {
         //faz requisição no banco com o codeRef.current.value e poe no mockbanco
-        const mockBanco = false;
-        if (!mockBanco) {
+        if (codeRef.current.value === 'annelinda') {
             //coloca o código no redux
             dispatch(changeTela('rating'));
         } else {
