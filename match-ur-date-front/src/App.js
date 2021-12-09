@@ -1,21 +1,21 @@
 import React from 'react';
-import {useEffect, useState} from 'react';
-import { Tela } from './features/tela/Tela';
+import { useSelector } from 'react-redux';
+import {  selectTela } from '../src/features/tela/telaSlice';
 import './App.css';
 import Initial from './app/components/Initial/Initial';
+import Rating from './app/components/Rating/Rating';
 
 const App = () => {
-  const [ screen, setScreen ] = useState();
+  const screen = useSelector(selectTela);
   
-  useEffect(() => {
-      setScreen('initial');
-    }, []);
-
     return (
         // <MuiThemeProvider theme={theme}>
         <div className="App">
           {screen === 'initial' && (
-            <Initial setScreen={setScreen} />
+            <Initial />
+          )}
+          {screen === 'rating' && (
+            <Rating />
           )}
         </div>
         // </MuiThemeProvider>

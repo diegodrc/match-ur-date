@@ -7,20 +7,21 @@ import SensorDoorIcon from '@mui/icons-material/SensorDoor';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import * as Constants from '../Constants';
 import GenericModal from '../utils/GenericModal';
+import { useDispatch } from 'react-redux';
+import { changeTela } from '../../../features/tela/telaSlice';
 
 const Initial = () => {
     const codeRef = useRef('codeRef');
     const [codeError, setCodeError] = useState(false);
     const [openEnterModal, setOpenEnterModal] = useState(false);
+    const dispatch = useDispatch();
 
     const cancelEnterModal = () => setOpenEnterModal(false);
-    const codeErrorMessage = 'A sessão inserida não existe! Digite uma sessão válida ou crie uma nova.';
-
     const enterSession = () => {
         //faz requisição no banco com o codeRef.current.value e poe no mockbanco
         const mockBanco = false;
-        if (mockBanco) {
-            //nao sei
+        if (!mockBanco) {
+            dispatch(changeTela('rating'));
         } else {
             setCodeError(true);
         }
@@ -29,7 +30,7 @@ const Initial = () => {
     const enterModal = (
         <>
         <Typography>Insira o código da sessão:</Typography>
-        <TextField error={codeError} helperText={codeError ? codeErrorMessage : ''} variant="outlined" label="Código" inputRef={codeRef}/>
+        <TextField error={codeError} helperText={codeError ? Constants.text.noSessionError : ''} variant="outlined" inputRef={codeRef}/>
         </>
     );
 

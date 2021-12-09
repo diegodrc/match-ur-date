@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 'tela-inicial'
+  value: 'initial'
 };
 
 export const telaSlice = createSlice({
