@@ -26,6 +26,7 @@ const styles = {
     options: {
         display: 'flex',
         width: '100%',
+        padding: '10px 0px',
         justifyContent: 'right'
     },
     okButton: {

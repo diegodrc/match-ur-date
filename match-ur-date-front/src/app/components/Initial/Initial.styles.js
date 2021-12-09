@@ -34,8 +34,17 @@ const styles = {
         fontFamily: theme.typography.fontFamily,
         '&:hover': {
             background: theme.palette.primary.button
-        },
-    }
+        }
+    },
+    text: {
+        fontFamily: theme.typography.fontFamily,
+        padding: '4px 0px',
+        fontSize: '14px'
+    },
+    input: {
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '14px'
+    },
 };
 
 export default styles;

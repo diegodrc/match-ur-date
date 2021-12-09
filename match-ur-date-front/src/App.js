@@ -9,7 +9,6 @@ const App = () => {
   const screen = useSelector(selectTela);
   
     return (
-        // <MuiThemeProvider theme={theme}>
         <div className="App">
           {screen === 'initial' && (
             <Initial />
@@ -18,7 +17,6 @@ const App = () => {
             <Rating />
           )}
         </div>
-        // </MuiThemeProvider>
     );
 };
 export default App;
