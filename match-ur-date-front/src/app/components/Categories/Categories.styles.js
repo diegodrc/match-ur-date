@@ -4,11 +4,14 @@ const styles = {
     outer: {
         display: 'flex',
         maxWidth: 'fit-content',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexWrap: 'wrap'
     },
     cardGrid: {
         display: 'flex',
-        spaceBetween: '20px' 
+        spaceBetween: '20px',
+        flex: '1',
+        width: '200px'
     },
     info: {
         fontFamily: theme.typography.fontFamily,

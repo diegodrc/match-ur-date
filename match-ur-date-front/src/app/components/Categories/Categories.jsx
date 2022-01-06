@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useRef } from 'react';
-import { Card, Typography } from '@mui/material';
+import { Card, CardActionArea, CardMedia, CardContent, Grid, Typography } from '@mui/material';
 import Logo from '../../assets/images/logo.png';
 import styles from './Categories.styles';
 import SensorDoorIcon from '@mui/icons-material/SensorDoor';
@@ -9,8 +9,9 @@ import * as Constants from '../Constants';
 import GenericModal from '../utils/GenericModal';
 import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
+import theme from '../Theme';
 
-const mockCategories = ['Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica'];
+const mockCategories = ['Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica', 'Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica'];
 
 const Categories = () => {
     const codeRef = useRef('codeRef');
@@ -24,14 +25,9 @@ const Categories = () => {
     const cancelEnterModal = () => setOpenEnterModal(false);
 
     // const cancelCreateModal = () => setOpenCreateModal(false);
-
-    const enterRating = () => {
-        //vai pra tela de avalição
-        dispatch(changeTela('rating'));
-    };
-
+    
     const createSession = () => {
-        dispatch(changeTela('categories'));
+        dispatch(changeTela('rating'));
     };
 
     const enterModal = (
@@ -39,15 +35,26 @@ const Categories = () => {
     );
 
     return (
-        <>
-            <div style={styles.outer}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '50px' }}>
+            <Typography variant="h4" style={{ fontFamily: theme.typography.fontFamily }}>Escolha uma categoria para começar:</Typography>
+            <Grid container spacing={2} sx={{ p: 8, justifyContent: 'center' }}>
             {mockCategories.map((category) =>
-            <div style={styles.cardGrid}>
-            <Card>{category}</Card>
-            </div>)}
-            </div>
-            <GenericModal showButtons={true} content={enterModal} open={openEnterModal} handleCancel={cancelEnterModal} handleOk={enterRating}/>
-        </>
+            <Grid item xs={8} sx={{ maxWidth: '200px' }}>
+    <Card onClick={() => createSession()} sx={{ maxWidth: 345, maxWidth: '100%', minHeight: '100%' }}>
+      <CardActionArea sx={{ height: '100% '}}>
+        <CardMedia
+          component="img"
+          image="https://i0.wp.com/jardimpamplonashopping.com.br/wp-content/uploads/2020/03/image-from-rawpixel-id-94019-original_Easy-Resize.com_.jpg?fit=884%2C590&ssl=1"
+        />
+          <Typography gutterBottom variant="h5" component="div"  style={{ fontFamily: theme.typography.fontFamily, marginTop: '6px' }}>
+            {category}
+          </Typography>
+      </CardActionArea>
+    </Card>
+            </Grid>)}
+            </Grid>
+            <GenericModal showButtons={true} content={enterModal} open={openEnterModal} handleCancel={cancelEnterModal} handleOk={createSession}/>
+        </div>
     );
 };
 
