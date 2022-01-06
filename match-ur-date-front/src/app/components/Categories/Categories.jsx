@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
 import theme from '../Theme';
 
-const mockCategories = ['Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica', 'Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica'];
+const mockCategories = ['Todas', 'Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica', 'Ação', 'Aventura', 'Thriller', 'Suspense', 'Ficção científica'];
 
 const Categories = () => {
     const codeRef = useRef('codeRef');
