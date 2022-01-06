@@ -9,6 +9,7 @@ import * as Constants from '../Constants';
 import GenericModal from '../utils/GenericModal';
 import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
+import { changeMovie } from '../../../features/movie/movieSlice';
 import theme from '../Theme';
 
 const mockMovies = ['À Espera de Um Milagre', 'A Origem', 'A Chegada', 'O Quinto Elemento'];
@@ -21,7 +22,8 @@ const Rating = () => {
     // const cancelCreateModal = () => setOpenCreateModal(false);
     
     const showMatch = () => {
-        dispatch(changeTela('match'));
+      dispatch(changeMovie(mockMovies[movie]));
+      dispatch(changeTela('match'));
     };
 
     const goToNextMovie = () => {

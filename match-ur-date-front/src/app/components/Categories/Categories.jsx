@@ -39,8 +39,8 @@ const Categories = () => {
             <Typography variant="h4" style={{ fontFamily: theme.typography.fontFamily }}>Escolha uma categoria para começar:</Typography>
             <Grid container spacing={2} sx={{ p: 8, justifyContent: 'center' }}>
             {mockCategories.map((category) =>
-            <Grid item xs={8} sx={{ maxWidth: '200px' }}>
-    <Card onClick={() => createSession()} sx={{ maxWidth: 345, maxWidth: '100%', minHeight: '100%' }}>
+            <Grid item xs={8} sx={{ maxWidth: 345 }}>
+    <Card onClick={() => createSession()} sx={{ maxWidth: 345, minHeight: '100%' }}>
       <CardActionArea sx={{ height: '100% '}}>
         <CardMedia
           component="img"
