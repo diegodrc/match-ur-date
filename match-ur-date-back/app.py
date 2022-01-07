@@ -1,6 +1,6 @@
 from flask import Flask
-from web.routes import web
-from web.api import api
+from routes import web
+from api import api
 
 app = Flask(__name__)
 
