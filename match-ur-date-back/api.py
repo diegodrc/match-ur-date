@@ -78,3 +78,7 @@ def deu_like(sessionID, liked_movie):
     result = db.todos.update_one({'sessionId': sessionID}, {"$set": {'title': "updated title"}})
     return result.raw_result
 
+@api.route('/genres', methods=['GET'])
+def genres():
+    genres = {doc['id']: doc['name']  for doc in db.db.genres.find()}
+    return genres

@@ -16,7 +16,3 @@ def test():
     db.db.collection.insert_one({"name": "John"})
     return "Connected to the data base!"
 
-@web.route("/genres")
-def genres():
-    genres = {doc['id']: doc['name']  for doc in db.db.genres.find()}
-    return genres
