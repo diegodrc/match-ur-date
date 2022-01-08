@@ -1,5 +1,5 @@
 import db
-from flask import Blueprint, Flask, request, Response
+from flask import Blueprint, Flask, request, Response, jsonify
 import requests, json
 from constants import Endpoint
 import random
@@ -80,5 +80,6 @@ def deu_like(sessionID, liked_movie):
 
 @api.route('/genres', methods=['GET'])
 def genres():
-    genres = {doc['id']: doc['name']  for doc in db.db.genres.find()}
-    return genres
+    response = jsonify({doc['id']: doc['name']  for doc in db.db.genres.find()})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
