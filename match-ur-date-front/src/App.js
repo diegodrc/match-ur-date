@@ -6,6 +6,7 @@ import Initial from './app/components/Initial/Initial';
 import Rating from './app/components/Rating/Rating';
 import Match from './app/components/Match/Match';
 import Categories from './app/components/Categories/Categories';
+import Code from './app/components/Code/Code';
 
 const App = () => {
   const screen = useSelector(selectTela);
@@ -17,6 +18,9 @@ const App = () => {
           )}
           {screen === 'categories' && (
             <Categories />
+          )}
+          {screen === 'code' && (
+            <Code />
           )}
           {screen === 'rating' && (
             <Rating />

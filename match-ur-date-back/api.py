@@ -65,7 +65,7 @@ def nova_sessao(list_category):
         "liked2": [],
         "matched": False,
         "matched_movie": None})
-    response = jsonify({key: key})
+    response = jsonify({'key': key})
     return response
 
 @api.route('/verificar_sessao', methods=['GET','POST'])

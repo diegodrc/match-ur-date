@@ -1,6 +1,7 @@
 import styles from './Categories.styles';
 import GenericModal from '../utils/GenericModal';
 import { selectGenres, setGenres } from '../../../features/genres/genresSlice';
+import { setCode } from '../../../features/code/codeSlice';
 import { Card, CardActionArea, CardMedia, CardContent, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,8 +24,8 @@ const Categories = () => {
     // const cancelCreateModal = () => setOpenCreateModal(false);
     
     const createSession = (category) => {
-      createSessionService(category).then(res => console.log(res));
-        // dispatch(changeTela('rating'));
+      createSessionService(category).then(res => dispatch(setCode(res.data.key)));
+      dispatch(changeTela('code'));
     };
 
     const enterModal = (
