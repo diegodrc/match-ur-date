@@ -55,17 +55,18 @@ def get_movies_by_genre(genre):
     else:
         return("error")
 
-@api.route('/nova_sessao', methods=['GET','POST'])
+@api.route('/nova_sessao/<list_category>', methods=['POST'])
 def nova_sessao(list_category):
     key = randon_key()
-    db.db.collection.insert_one({
+    db.db.sessions.insert_one({
         "sessionId": key,
         "categoryId": list_category,
         "liked1": [],
         "liked2": [],
         "matched": False,
         "matched_movie": None})
-    return key
+    response = jsonify({key: key})
+    return response
 
 @api.route('/verificar_sessao', methods=['GET','POST'])
 def verificar_sessao(sessionID):
@@ -81,5 +82,4 @@ def deu_like(sessionID, liked_movie):
 @api.route('/genres', methods=['GET'])
 def genres():
     response = jsonify({doc['id']: doc['name']  for doc in db.db.genres.find()})
-    response.headers.add("Access-Control-Allow-Origin", "*")
     return response

@@ -4,7 +4,7 @@ import { selectGenres, setGenres } from '../../../features/genres/genresSlice';
 import { Card, CardActionArea, CardMedia, CardContent, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenres } from '../../../services';
+import { getGenres, createSession as createSessionService} from '../../../services';
 import { changeTela } from '../../../features/tela/telaSlice';
 import theme from '../Theme';
 
@@ -22,8 +22,9 @@ const Categories = () => {
 
     // const cancelCreateModal = () => setOpenCreateModal(false);
     
-    const createSession = () => {
-        dispatch(changeTela('rating'));
+    const createSession = (category) => {
+      createSessionService(category).then(res => console.log(res));
+        // dispatch(changeTela('rating'));
     };
 
     const enterModal = (
@@ -41,7 +42,7 @@ const Categories = () => {
             <Grid container spacing={2} sx={{ p: 8, justifyContent: 'center' }}>
             {Object.keys(genres).map((key, index) =>
               <Grid item xs={8} sx={{ maxWidth: 345 }}>
-                <Card onClick={() => createSession()} sx={{ maxWidth: 345, minHeight: '100%' }}>
+                <Card onClick={() => createSession(genres[key])} sx={{ maxWidth: 345, minHeight: '100%' }}>
                   <CardActionArea sx={{ height: '100% '}}>
                     <CardMedia
                       component="img"
