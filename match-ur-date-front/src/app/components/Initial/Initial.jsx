@@ -9,9 +9,11 @@ import * as Constants from '../Constants';
 import GenericModal from '../utils/GenericModal';
 import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
+import { setCode as setCodeRedux } from '../../../features/code/codeSlice';
 
 const Initial = () => {
     const codeRef = useRef('codeRef');
+    const [code, setCode] = useState('')
     const [codeError, setCodeError] = useState(false);
     const [openEnterModal, setOpenEnterModal] = useState(false);
     // const [openCreateModal, setOpenCreateModal] = useState(false);
@@ -24,13 +26,8 @@ const Initial = () => {
     // const cancelCreateModal = () => setOpenCreateModal(false);
 
     const enterSession = () => {
-        //faz requisição no banco com o codeRef.current.value e poe no mockbanco
-        if (codeRef.current.value === 'annelinda') {
-            //coloca o código no redux
-            dispatch(changeTela('rating'));
-        } else {
-            setCodeError(true);
-        }
+        dispatch(setCodeRedux(code));
+        dispatch(changeTela('rating'));
     };
 
     const createSession = () => {
@@ -39,16 +36,18 @@ const Initial = () => {
 
     const enterModal = (
         <>
-        <Typography sx={styles.text}>Insira o código da sessão:</Typography>
-        <TextField
-            inputProps={{style: styles.input}}
-            size="small"
-            margin="dense"
-            error={codeError}
-            helperText={codeError ? Constants.text.noSessionError : ''}
-            variant="outlined"
-            fullWidth
-            inputRef={codeRef}/>
+            <Typography sx={styles.text}>Insira o código da sessão:</Typography>
+            <TextField
+                inputProps={{style: styles.input}}
+                size="small"
+                margin="dense"
+                error={codeError}
+                helperText={codeError ? Constants.text.noSessionError : ''}
+                variant="outlined"
+                fullWidth
+                value={code}
+                onChange={(o) => setCode(o.target.value)}
+            />
         </>
     );
 
