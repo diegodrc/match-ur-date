@@ -6,6 +6,7 @@ export const text = {
     enter: 'Ingressar em sessão',
     cancel: 'Cancelar',
     ok: 'OK',
-    codigo: 'O código de sua sessão é: '
+    codigo: 'O código de sua sessão é: ',
+    comecar: 'Começar'
 }
 
