@@ -15,7 +15,7 @@ const Rating = () => {
     matchMovie(code).then(res => {
       setMovie(res.data.movie);
     });
-  })
+  }, [])
   
 
   return (

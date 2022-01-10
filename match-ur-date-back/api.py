@@ -31,8 +31,7 @@ def nova_sessao(genre_id):
         "liked2": [],
         "next1": 0,
         "next2": 0,
-        "matched": False,
-        "matched_movie": None})
+    })
     response = jsonify({'key': key})
     return response
 
