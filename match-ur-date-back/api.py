@@ -67,3 +67,11 @@ def check_match():
     session = db.db.sessions.find_one({ "sessionId": args['session'] })
     response = jsonify({'match': len(set(session["liked1"]) & set(session["liked2"])) > 0 })
     return response
+
+@api.route('/match_movie', methods=['GET'])
+def match_movie():
+    args = request.args.to_dict()
+    session = db.db.sessions.find_one({ "sessionId": args['session'] })
+    match_movie = list(set(session["liked1"]) & set(session["liked2"]))[0]
+    response = jsonify({'movie': session['movies'][match_movie]})
+    return response

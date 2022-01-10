@@ -24,3 +24,8 @@ export const checkMatch = async (code, user) => {
     const res = await axios.get(`http://192.168.0.10:8999/check_match?session=${code}&user=${user}`);
     return res;
 }
+
+export const matchMovie = async (code) => {
+    const res = await axios.get(`http://192.168.0.10:8999/match_movie?session=${code}`);
+    return res;
+}
