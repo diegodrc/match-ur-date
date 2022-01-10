@@ -10,3 +10,7 @@ export const createSession = async (category) => {
     return res;
 }
 
+export const getMovie = async (code, user) => {
+    const res = await axios.get(`http://192.168.0.10:8999/get_movie?session=${code}&user=${user}`);
+    return res;
+}
