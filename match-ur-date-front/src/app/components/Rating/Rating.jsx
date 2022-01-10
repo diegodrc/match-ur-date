@@ -14,12 +14,14 @@ import theme from '../Theme';
 import { getMovie } from '../../../services';
 import { useSelector } from 'react-redux';
 import { selectCode } from '../../../features/code/codeSlice';
+import { selectUser } from '../../../features/user/userSlice';
 
 const mockMovies = ['À Espera de Um Milagre', 'A Origem', 'A Chegada', 'O Quinto Elemento'];
 
 const Rating = () => {
     const [movie, setMovie] = useState(0);
     const code = useSelector(selectCode);
+    const user = useSelector(selectUser);
 
     const dispatch = useDispatch();
 
@@ -30,12 +32,16 @@ const Rating = () => {
       dispatch(changeTela('match'));
     };
 
-    const goToNextMovie = () => {
-      setMovie(prevState => prevState + 1);
+    const like = () => {
+      getMovie(code, user).then(res => setMovie(res.data.movie));
+    };
+
+    const unlike = () => {
+      getMovie(code, user).then(res => setMovie(res.data.movie));
     };
 
     useEffect(() => {
-      getMovie(code ,'1').then(res => setMovie(res.data.movie));
+      getMovie(code, user).then(res => setMovie(res.data.movie));
     }, [])
 
     return (
@@ -56,8 +62,8 @@ const Rating = () => {
             </CardContent>
           </Card>
           <div style={styles.options}>
-            <Button startIcon={<AddCircleIcon />} size="large" variant="contained" sx={styles.buttons} style={{ background: 'green', marginTop: '20px' }} onClick={showMatch}>Sim</Button>
-            <Button startIcon={<SensorDoorIcon />} size="large" variant="contained" sx={styles.buttons} style={{ background: 'red', marginTop: '20px' }} onClick={goToNextMovie}>Não</Button>
+            <Button startIcon={<AddCircleIcon />} size="large" variant="contained" sx={styles.buttons} style={{ background: 'green', marginTop: '20px' }} onClick={like}>Sim</Button>
+            <Button startIcon={<SensorDoorIcon />} size="large" variant="contained" sx={styles.buttons} style={{ background: 'red', marginTop: '20px' }} onClick={unlike}>Não</Button>
           </div>
         </div>
     );

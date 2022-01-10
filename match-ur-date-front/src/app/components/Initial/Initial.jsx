@@ -10,6 +10,7 @@ import GenericModal from '../utils/GenericModal';
 import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
 import { setCode as setCodeRedux } from '../../../features/code/codeSlice';
+import { setUser } from '../../../features/user/userSlice';
 
 const Initial = () => {
     const codeRef = useRef('codeRef');
@@ -27,6 +28,7 @@ const Initial = () => {
 
     const enterSession = () => {
         dispatch(setCodeRedux(code));
+        dispatch(setUser('2'));
         dispatch(changeTela('rating'));
     };
 

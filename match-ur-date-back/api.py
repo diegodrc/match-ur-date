@@ -45,6 +45,7 @@ def genres():
 def get_movie():
     args = request.args.to_dict()
     session = db.db.sessions.find_one({ "sessionId": args['session'] })
+    db.db.sessions.update_one({ "sessionId": args['session'] }, { "$set": { 'next'+ str(args['user']): session['next'+ str(args['user'])] + 1 } })
     movie = session['movies'][session['next'+str(args['user'])]]
     response = jsonify({'movie': movie})
     return response

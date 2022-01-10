@@ -4,6 +4,7 @@ import telaReducer from '../features/tela/telaSlice';
 import movieReducer from '../features/movie/movieSlice';
 import genresReducer from '../features/genres/genresSlice';
 import codeReducer from '../features/code/codeSlice';
+import userReducer from '../features/user/userSlice';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     tela: telaReducer,
     movie: movieReducer,
     genres: genresReducer,
-    code: codeReducer
+    code: codeReducer,
+    user: userReducer
   },
 });

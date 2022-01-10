@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getGenres, createSession as createSessionService} from '../../../services';
 import { changeTela } from '../../../features/tela/telaSlice';
 import theme from '../Theme';
+import { setUser } from '../../../features/user/userSlice';
 
 const Categories = () => {
     const codeRef = useRef('codeRef');
@@ -25,6 +26,7 @@ const Categories = () => {
     
     const createSession = (key) => {
       createSessionService(key).then(res => dispatch(setCode(res.data.key)));
+      dispatch(setUser('1'));
       dispatch(changeTela('code'));
     };
 
