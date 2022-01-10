@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
 import { changeMovie } from '../../../features/movie/movieSlice';
 import theme from '../Theme';
-import { getMovie, likeMovie } from '../../../services';
+import { checkMatch, getMovie, likeMovie } from '../../../services';
 import { useSelector } from 'react-redux';
 import { selectCode } from '../../../features/code/codeSlice';
 import { selectUser } from '../../../features/user/userSlice';
@@ -45,6 +45,11 @@ const Rating = () => {
   };
 
   const unlike = () => {
+    checkMatch(code, user).then(res => {
+      if(res.data.match){
+        showMatch()
+      }
+    });
     getMovie(code, user).then(res => {
       setMovie(res.data.movie);
       setId(res.data.id);
