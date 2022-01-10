@@ -14,3 +14,8 @@ export const getMovie = async (code, user) => {
     const res = await axios.get(`http://192.168.0.10:8999/get_movie?session=${code}&user=${user}`);
     return res;
 }
+
+export const likeMovie = async (code, user, id) => {
+    const res = await axios.post(`http://192.168.0.10:8999/like_movie?session=${code}&user=${user}&id=${id}`);
+    return res;
+}

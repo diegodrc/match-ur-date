@@ -47,5 +47,16 @@ def get_movie():
     session = db.db.sessions.find_one({ "sessionId": args['session'] })
     db.db.sessions.update_one({ "sessionId": args['session'] }, { "$set": { 'next'+ str(args['user']): session['next'+ str(args['user'])] + 1 } })
     movie = session['movies'][session['next'+str(args['user'])]]
-    response = jsonify({'movie': movie})
+    response = jsonify({'movie': movie, 'id': session['next'+ str(args['user'])]})
+    return response
+
+@api.route('/like_movie', methods=['POST'])
+def like_movie():
+    args = request.args.to_dict()
+    session = db.db.sessions.find_one({ "sessionId": args['session'] })
+    if(len(set(session["liked1"]) & set(session["liked2"])) == 0):
+        db.db.sessions.update_one({ "sessionId": args['session'] }, 
+                                { "$set": { 'liked'+ str(args['user']): session['liked'+ str(args['user'])] + [int(args['id'])] } })
+        session = db.db.sessions.find_one({ "sessionId": args['session'] })
+    response = jsonify({'match': len(set(session["liked1"]) & set(session["liked2"])) > 0 })
     return response
