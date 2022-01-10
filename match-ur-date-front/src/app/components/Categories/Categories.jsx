@@ -23,8 +23,8 @@ const Categories = () => {
 
     // const cancelCreateModal = () => setOpenCreateModal(false);
     
-    const createSession = (category) => {
-      createSessionService(category).then(res => dispatch(setCode(res.data.key)));
+    const createSession = (key) => {
+      createSessionService(key).then(res => dispatch(setCode(res.data.key)));
       dispatch(changeTela('code'));
     };
 
@@ -43,7 +43,7 @@ const Categories = () => {
             <Grid container spacing={2} sx={{ p: 8, justifyContent: 'center' }}>
             {Object.keys(genres).map((key, index) =>
               <Grid item xs={8} sx={{ maxWidth: 345 }}>
-                <Card onClick={() => createSession(genres[key])} sx={{ maxWidth: 345, minHeight: '100%' }}>
+                <Card onClick={() => createSession(key, genres[key])} sx={{ maxWidth: 345, minHeight: '100%' }}>
                   <CardActionArea sx={{ height: '100% '}}>
                     <CardMedia
                       component="img"

@@ -55,12 +55,14 @@ def get_movies_by_genre(genre):
     else:
         return("error")
 
-@api.route('/nova_sessao/<list_category>', methods=['POST'])
-def nova_sessao(list_category):
+@api.route('/nova_sessao/<genre_id>', methods=['POST'])
+def nova_sessao(genre_id):
+    url = Endpoint.GET_MOVIES_BY_GENRE.value.replace('%genre%', genre_id)
+    r = requests.get(url)
     key = randon_key()
     db.db.sessions.insert_one({
         "sessionId": key,
-        "categoryId": list_category,
+        "movies": r.json()['results'],
         "liked1": [],
         "liked2": [],
         "matched": False,
