@@ -7,12 +7,12 @@ web = Blueprint('app', __name__)
     Aqui vão as rotas para as páginas web
 '''
 
-@web.route('/')
-def hello():
-    return 'Oi, Vadias'
-
-@web.route("/test")
-def test():
-    db.db.collection.insert_one({"name": "John"})
-    return "Connected to the data base!"
+# @web.route('/')
+# def hello():
+#     return 'Oi, Vadias'
+#
+# @web.route("/test")
+# def test():
+#     db.db.collection.insert_one({"name": "John"})
+#     return "Connected to the data base!"
 
