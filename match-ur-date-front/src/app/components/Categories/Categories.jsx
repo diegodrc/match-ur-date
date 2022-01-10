@@ -11,57 +11,44 @@ import theme from '../Theme';
 import { setUser } from '../../../features/user/userSlice';
 
 const Categories = () => {
-    const codeRef = useRef('codeRef');
-    const [chosenCategory, setChosenCategory] = useState(null);
-    const [openEnterModal, setOpenEnterModal] = useState(false);
-    const genres = useSelector(selectGenres);
-    // const [openCreateModal, setOpenCreateModal] = useState(false);
-    // const [sessionCreated, setSessionCreated] = useState(false);
+  const [openEnterModal, setOpenEnterModal] = useState(false);
+  const genres = useSelector(selectGenres);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  
+  const createSession = (key) => {
+    createSessionService(key).then(res => dispatch(setCode(res.data.key)));
+    dispatch(setUser('1'));
+    dispatch(changeTela('code'));
+  };
 
-    const cancelEnterModal = () => setOpenEnterModal(false);
+  useEffect(() => {
+    getGenres().then(res => {dispatch(setGenres(res.data))});
+  }, []);
 
-    // const cancelCreateModal = () => setOpenCreateModal(false);
-    
-    const createSession = (key) => {
-      createSessionService(key).then(res => dispatch(setCode(res.data.key)));
-      dispatch(setUser('1'));
-      dispatch(changeTela('code'));
-    };
-
-    const enterModal = (
-        <Typography sx={styles.text}>Criar sessão com a categoria ${chosenCategory}?</Typography>
-    );
-
-    useEffect(() => {
-      getGenres().then(res => {dispatch(setGenres(res.data))});
-    }, []);
-    
-
-    return (
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '50px' }}>
-            <Typography variant="h4" style={{ fontFamily: theme.typography.fontFamily }}>Escolha uma categoria para começar:</Typography>
-            <Grid container spacing={2} sx={{ p: 8, justifyContent: 'center' }}>
-            {Object.keys(genres).map((key, index) =>
-              <Grid item xs={8} sx={{ maxWidth: 345 }}>
-                <Card onClick={() => createSession(key, genres[key])} sx={{ maxWidth: 345, minHeight: '100%' }}>
-                  <CardActionArea sx={{ height: '100% '}}>
-                    <CardMedia
-                      component="img"
-                      image="https://i0.wp.com/jardimpamplonashopping.com.br/wp-content/uploads/2020/03/image-from-rawpixel-id-94019-original_Easy-Resize.com_.jpg?fit=884%2C590&ssl=1"
-                    />
-                      <Typography gutterBottom variant="h5" component="div"  style={{ fontFamily: theme.typography.fontFamily, marginTop: '6px' }}>
-                        {genres[key]}
-                      </Typography>
-                  </CardActionArea>
-                </Card>
-              </Grid>)
-            }
-            </Grid>
-            <GenericModal showButtons={true} content={enterModal} open={openEnterModal} handleCancel={cancelEnterModal} handleOk={createSession}/>
-        </div>
-    );
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '50px' }}>
+        <Typography variant="h4" style={{ fontFamily: theme.typography.fontFamily }}>Escolha uma categoria para começar:</Typography>
+        <Grid container spacing={2} sx={{ p: 8, justifyContent: 'center' }}>
+        {Object.keys(genres).map((key, index) =>
+          <Grid item xs={8} sx={{ maxWidth: 345 }}>
+            <Card onClick={() => createSession(key, genres[key])} sx={{ maxWidth: 345, minHeight: '100%' }}>
+              <CardActionArea sx={{ height: '100% '}}>
+                <CardMedia
+                  component="img"
+                  image="https://i0.wp.com/jardimpamplonashopping.com.br/wp-content/uploads/2020/03/image-from-rawpixel-id-94019-original_Easy-Resize.com_.jpg?fit=884%2C590&ssl=1"
+                />
+                  <Typography gutterBottom variant="h5" component="div"  style={{ fontFamily: theme.typography.fontFamily, marginTop: '6px' }}>
+                    {genres[key]}
+                  </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>)
+        }
+        </Grid>
+        <GenericModal showButtons={true} content={enterModal} open={openEnterModal} handleCancel={cancelEnterModal} handleOk={createSession}/>
+    </div>
+  );
 };
 
 export default Categories;

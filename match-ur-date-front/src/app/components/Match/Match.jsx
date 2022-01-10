@@ -6,7 +6,7 @@ import { matchMovie } from '../../../services';
 import { useSelector } from 'react-redux';
 import { selectCode } from '../../../features/code/codeSlice';
 
-const Rating = () => {
+const Match = () => {
   const [movie, setMovie] = useState({'title': '', 'backdrop_path': '', 'overview': ''});
   
   const code = useSelector(selectCode);
@@ -16,7 +16,6 @@ const Rating = () => {
       setMovie(res.data.movie);
     });
   }, [])
-  
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '50px' }}>
@@ -42,4 +41,4 @@ const Rating = () => {
   );
 };
 
-export default Rating;
+export default Match;
