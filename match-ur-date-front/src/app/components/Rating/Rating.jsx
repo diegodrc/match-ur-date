@@ -1,22 +1,16 @@
 import React, { useEffect } from 'react';
-import { useState, useRef } from 'react';
-import { Button, Card, CardActionArea, CardMedia, CardContent, Grid, Typography } from '@mui/material';
-import Logo from '../../assets/images/logo.png';
+import { useState } from 'react';
+import { Button, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import styles from './../Initial/Initial.styles';
 import SensorDoorIcon from '@mui/icons-material/CheckCircle';
 import AddCircleIcon from '@mui/icons-material/Cancel';
-import * as Constants from '../Constants';
-import GenericModal from '../utils/GenericModal';
 import { useDispatch } from 'react-redux';
 import { changeTela } from '../../../features/tela/telaSlice';
-import { changeMovie } from '../../../features/movie/movieSlice';
 import theme from '../Theme';
 import { checkMatch, getMovie, likeMovie } from '../../../services';
 import { useSelector } from 'react-redux';
 import { selectCode } from '../../../features/code/codeSlice';
 import { selectUser } from '../../../features/user/userSlice';
-
-const mockMovies = ['À Espera de Um Milagre', 'A Origem', 'A Chegada', 'O Quinto Elemento'];
 
 const Rating = () => {
   const [movie, setMovie] = useState({'title': '', 'backdrop_path': '', 'overview': ''});
@@ -25,8 +19,6 @@ const Rating = () => {
   const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
-
-  // const cancelCreateModal = () => setOpenCreateModal(false);
   
   const showMatch = () => {
     dispatch(changeTela('match'));
